@@ -4,7 +4,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "analyze": "ANALYZE=true next build"
+        "analyze": "ANALYZE=true next build",
+        "export": "next export"
     },
     "dependencies": {
         "next": "latest",

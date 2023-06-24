@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import Head from "next/head";
-import RootLayout from "../components/RootLayout";
+import React from "react";
 import Header from "../components/Header";
 import { Flex } from "@chakra-ui/react";
 

@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import Head from "next/head";
+import RootLayout from "../components/RootLayout";
+import Header from "../components/Header";
+import { Flex } from "@chakra-ui/react";
 
 export default function Home() {
     return (
-        <div className="container">
-            <span>init Next.js</span>
-        </div>
+        <Flex flex={"column"}>
+            <Header />
+        </Flex>
     );
 }

@@ -1,9 +1,10 @@
 "use client";
+
 import { Flex, Menu, MenuItem, Heading, IconButton, MenuButton, MenuList } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 const Header = () => {
     return (
-        <Flex w="100%" background="gray.200" zIndex={1} pos={"fixed"} top={0} p={"0.8rem"} justifyContent={"space-between"}>
+        <Flex w="100%" background="white" zIndex={1} pos={"fixed"} top={0} p={"0.8rem"} justifyContent={"space-between"}>
             <Heading>CODE CRAFT</Heading>
             <Menu>
                 <MenuButton as={IconButton} icon={<HamburgerIcon />} aria-label="Options" variant="outline" />

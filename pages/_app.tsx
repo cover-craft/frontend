@@ -4,18 +4,18 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { extendTheme } from "@chakra-ui/react";
 import Header from "../components/Header";
 
-export const theme = extendTheme({
-    fonts: {
-        fonts: {
-            heading: `'Open Sans', sans-serif`,
-            body: `'Raleway', sans-serif`,
-        },
-    },
-});
+// export const theme = extendTheme({
+//     fonts: {
+//         fonts: {
+//             heading: `'Open Sans', sans-serif`,
+//             body: `'Raleway', sans-serif`,
+//         },
+//     },
+// });
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <ChakraProvider theme={theme}>
+        <ChakraProvider>
             <Header />
             <Component {...pageProps} />
         </ChakraProvider>

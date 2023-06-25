@@ -1,5 +1,3 @@
-"use client";
-
 import { Flex, Menu, MenuItem, Heading, IconButton, MenuButton, MenuList } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 const Header = () => {

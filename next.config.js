@@ -3,11 +3,11 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
     openAnalyzer: false,
 });
 
-const repository = "https://cover-craft.github.io/frontend";
+//const repository = "https://cover-craft.github.io/frontend";
 
 const nextConfig = {
     reactStrictMode: true,
-    assetPrefix: repository,
+    //  assetPrefix: repository,
     swcMinify: true,
 };
 

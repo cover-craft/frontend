@@ -7,8 +7,8 @@ const Header = () => {
             <Menu>
                 <MenuButton as={IconButton} icon={<HamburgerIcon />} aria-label="Options" variant="outline" />
                 <MenuList>
-                    <MenuItem onClick={() => (window.location.href = "/frontend/login")}>로그인</MenuItem>
-                    <MenuItem onClick={() => (window.location.href = "/frontend/signup")}>회원가입</MenuItem>
+                    <MenuItem onClick={() => (window.location.href = "./login")}>로그인</MenuItem>
+                    <MenuItem onClick={() => (window.location.href = "./signup")}>회원가입</MenuItem>
                 </MenuList>
             </Menu>
         </Flex>

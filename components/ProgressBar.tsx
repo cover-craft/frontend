@@ -29,6 +29,9 @@ const ProgressBar = ({ steps, onComplete }: props) => {
             {steps[activeStep].template}
 
             <Button
+                my={"3rem"}
+                colorScheme="purple"
+                w={"100%"}
                 onClick={() => {
                     activeStep === max ? onComplete() : setActiveStep(activeStep + 1);
                 }}

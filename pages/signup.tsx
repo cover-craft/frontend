@@ -1,6 +1,7 @@
 import { Text } from "@chakra-ui/react";
+import Template from "../components/SignupTemplate";
 const Signup = () => {
-    return <Text>회원가입</Text>;
+    return <Template />;
 };
 
 export default Signup;

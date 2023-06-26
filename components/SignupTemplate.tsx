@@ -1,4 +1,4 @@
-import { Flex, Heading, Center, Stack, Text, Checkbox, Box } from "@chakra-ui/react";
+import { Flex, Heading, Center, Stack, Text, Checkbox, Box, Input, Button } from "@chakra-ui/react";
 import ProgressBar from "./ProgressBar";
 import { USE_AGREE } from "../public/agree/use_agree";
 const SignupTemplate = () => {
@@ -11,7 +11,7 @@ const SignupTemplate = () => {
                 <ProgressBar
                     steps={[
                         { title: "약관동의", template: <AgreeToTerms /> },
-                        { title: "개인정보 입력", template: <>개인정보 입력</> },
+                        { title: "개인정보 입력", template: <InputSingupForm /> },
                     ]}
                     onComplete={() => alert("완료 되었습니다.")}
                 />
@@ -43,6 +43,50 @@ const AgreeToTerms = () => {
                         {USE_AGREE}
                     </Text>
                 </Box>
+            </Stack>
+        </Flex>
+    );
+};
+
+const InputSingupForm = () => {
+    return (
+        <Flex flexDir={"column"} gap={10}>
+            <Center my={10}>
+                <Heading fontSize={"xl"}>회원정보 입력</Heading>
+            </Center>
+            <Stack>
+                <Text>이메일</Text>
+                <Flex>
+                    <Input placeholder="이메일" focusBorderColor="purple.200" />
+                    <Button colorScheme="purple" mx={"0.5rem"} fontWeight={"medium"}>
+                        중복 확인
+                    </Button>
+                </Flex>
+                <Text fontSize={"sm"} color={"purple.500"}>
+                    사용가능한 이메일입니다.
+                </Text>
+            </Stack>
+            <Stack>
+                <Text>비밀번호 입력</Text>
+                <Input placeholder="비밀번호" focusBorderColor="purple.200" />
+                <Input placeholder="비밀번호 확인" focusBorderColor="purple.200" />
+                <Text fontSize={"sm"} color={"red.500"}>
+                    비밀번호는 8자 이상, 특수문자 1개이상으로 설정해주세요.
+                </Text>
+            </Stack>
+            <Stack>
+                <Text>닉네임</Text>
+                <Input placeholder="닉네임" focusBorderColor="purple.200" />
+                <Text fontSize={"sm"} color={"red.500"}>
+                    닉네임은 2자 이상 50자 이내로 작성해주세요.
+                </Text>
+            </Stack>
+            <Stack>
+                <Text>전화번호</Text>
+                <Input placeholder="01012341234" focusBorderColor="purple.200" />
+                <Text fontSize={"sm"} color={"red.500"}>
+                    '-'제외로 작성해주세요.
+                </Text>
             </Stack>
         </Flex>
     );

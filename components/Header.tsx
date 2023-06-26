@@ -3,7 +3,7 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 const Header = () => {
     return (
         <Flex w="100%" background="white" zIndex={1} pos={"fixed"} top={0} p={"0.8rem"} justifyContent={"space-between"}>
-            <Heading>CODE CRAFT</Heading>
+            <Heading onClick={() => alert("heading")}>CODE CRAFT</Heading>
             <Menu>
                 <MenuButton as={IconButton} icon={<HamburgerIcon />} aria-label="Options" variant="outline" />
                 <MenuList>

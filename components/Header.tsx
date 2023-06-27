@@ -2,15 +2,30 @@ import { Flex, Menu, MenuItem, Heading, IconButton, MenuButton, MenuList } from 
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 interface props {
-    background?: string;
+    darkMode?: boolean;
 }
 
-const Header = ({ background = "white" }: props) => {
+const Header = ({ darkMode = false }: props) => {
     return (
-        <Flex w="100%" background={background} zIndex={1} pos={"fixed"} top={0} p={"0.8rem"} justifyContent={"space-between"}>
-            <Heading onClick={() => (window.location.href = "/")}>CODE CRAFT</Heading>
+        <Flex
+            w="100%"
+            background={darkMode ? "black" : "white"}
+            zIndex={1}
+            pos={"fixed"}
+            top={0}
+            p={"0.8rem"}
+            justifyContent={"space-between"}
+        >
+            <Heading color={darkMode ? "white" : "black"} onClick={() => (window.location.href = "/")}>
+                CODE CRAFT
+            </Heading>
             <Menu>
-                <MenuButton as={IconButton} icon={<HamburgerIcon />} aria-label="Options" variant="outline" />
+                <MenuButton
+                    as={IconButton}
+                    icon={<HamburgerIcon color={darkMode ? "white" : "black"} />}
+                    aria-label="Options"
+                    variant={darkMode ? "none" : "outline"}
+                />
                 <MenuList>
                     <MenuItem onClick={() => (window.location.href = "./login")}>로그인</MenuItem>
                     <MenuItem onClick={() => (window.location.href = "./signup")}>회원가입</MenuItem>

@@ -2,8 +2,9 @@ import { Flex, Menu, MenuItem, Heading, IconButton, MenuButton, MenuList } from 
 import { HamburgerIcon } from "@chakra-ui/icons";
 
 interface props {
-    background: string;
+    background?: string;
 }
+
 const Header = ({ background = "white" }: props) => {
     return (
         <Flex w="100%" background={background} zIndex={1} pos={"fixed"} top={0} p={"0.8rem"} justifyContent={"space-between"}>

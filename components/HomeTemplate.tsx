@@ -29,12 +29,12 @@ const ImageSection = () => {
         <Flex flexDir={"column"} height={"100vh"} gap={10} bg="black">
             <Flex gap={10} mt={"auto"}>
                 {banner1.map((img, index) => {
-                    return <Image key={index} unoptimized={true} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
+                    return <Image key={index} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
                 })}
             </Flex>
             <Flex gap={10}>
                 {reversed_banner.map((img, index) => {
-                    return <Image key={index} unoptimized={true} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
+                    return <Image key={`${img}_${index}`} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
                 })}
             </Flex>
         </Flex>

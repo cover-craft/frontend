@@ -1,7 +1,7 @@
 module.exports = {
     images: {
         loader: "imgix",
-        path: ["https://cover-craft.github.io/frontend/"],
+        path: "https://cover-craft.github.io/frontend/",
     },
 };
 const { imageOptimizer } = require("next/dist/server/image-optimizer");

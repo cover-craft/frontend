@@ -16,7 +16,7 @@ const ProgressBar = ({ steps, onComplete }: props) => {
 
     return (
         <Box position="relative" mx="1rem">
-            <Stepper size="sm" index={activeStep} gap="0">
+            <Stepper size="sm" index={activeStep} gap="0" colorScheme="purple">
                 {steps.map((step, index) => (
                     <Step key={index}>
                         <StepIndicator bg="white">
@@ -25,7 +25,7 @@ const ProgressBar = ({ steps, onComplete }: props) => {
                     </Step>
                 ))}
             </Stepper>
-            <Progress value={progressPercent} position="absolute" height="3px" width="full" top="10px" zIndex={-1} />
+            <Progress value={progressPercent} position="absolute" height="3px" width="full" top="10px" zIndex={-1} colorScheme="purple" />
             {steps[activeStep].template}
 
             <Button

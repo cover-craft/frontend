@@ -1,12 +1,11 @@
-import { Button, Flex, Text, useMediaQuery } from "@chakra-ui/react";
-import Image from "next/image";
-import banner1 from "../public/images/home/home_image_banner1";
+import { Button, Flex, Text } from "@chakra-ui/react";
 import Header from "./Header";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
+import ImageSection from "./ImageSection";
 
 const Home = () => {
     const [scrollY, setScrollY] = useState(0);
-
+    const windowHeight = useRef(0);
     const onScroll = useCallback((event) => {
         const { scrollY } = window;
         setScrollY(scrollY);
@@ -14,10 +13,11 @@ const Home = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", onScroll, { passive: true });
+        windowHeight.current = window.innerHeight;
     });
     return (
         <>
-            <Header darkMode={scrollY >= window.innerHeight ? false : true} />
+            <Header darkMode={scrollY >= windowHeight.current ? false : true} />
             <Flex flexDir="column">
                 <ImageSection />
                 <DescriptionSection />
@@ -35,24 +35,6 @@ const Home = () => {
                 </Button>
             </Flex>
         </>
-    );
-};
-
-const ImageSection = () => {
-    const reversed_banner = banner1.reverse();
-    return (
-        <Flex flexDir={"column"} height={"100vh"} gap={10} bg="black">
-            <Flex gap={10} mt={"auto"}>
-                {banner1.map((img, index) => {
-                    return <Image key={index} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
-                })}
-            </Flex>
-            <Flex gap={10}>
-                {reversed_banner.map((img, index) => {
-                    return <Image key={`${img}_${index}`} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
-                })}
-            </Flex>
-        </Flex>
     );
 };
 

@@ -7,16 +7,7 @@ const ImageSection = () => {
         <Flex flexDir={"column"} height={"100vh"} gap={10} bg="black">
             <Flex gap={10} mt={"auto"}>
                 {banner1.map((img, index) => {
-                    return (
-                        <Image
-                            key={index}
-                            src={img}
-                            alt={"생성 이미지 예시"}
-                            layout="responsive"
-                            sizes="(min-width: 500px) 200px, 150px"
-                            unoptimized
-                        ></Image>
-                    );
+                    return <Image key={index} src={img} alt={"생성 이미지 예시"} width={180} unoptimized></Image>;
                 })}
             </Flex>
             <Flex gap={10}>

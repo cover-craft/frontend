@@ -9,7 +9,7 @@ const repository = "https://cover-craft.github.io/frontend";
 
 const nextConfig = {
     reactStrictMode: true,
-    assetPrefix: repository,
+    //assetPrefix: repository,
     withImages,
     swcMinify: true,
     images: {

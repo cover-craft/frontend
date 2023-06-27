@@ -17,7 +17,7 @@ const Header = ({ darkMode = false }: props) => {
             justifyContent={"space-between"}
         >
             <Heading color={darkMode ? "white" : "black"} onClick={() => (window.location.href = "/")}>
-                CODE CRAFT
+                COVER CRAFT
             </Heading>
             <Menu>
                 <MenuButton

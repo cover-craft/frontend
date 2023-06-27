@@ -5,7 +5,7 @@ import ImageSection from "./ImageSection";
 
 const Home = () => {
     const [scrollY, setScrollY] = useState(0);
-    const windowHeight = useRef(0);
+    const windowHeight = useRef(100);
     const onScroll = useCallback((event) => {
         const { scrollY } = window;
         setScrollY(scrollY);

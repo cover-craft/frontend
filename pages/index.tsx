@@ -1,7 +1,8 @@
 import { Flex } from "@chakra-ui/react";
+import Template from "../components/HomeTemplate";
 
 const Home = () => {
-    return <Flex flex={"column"}></Flex>;
+    return <Template></Template>;
 };
 
 export default Home;

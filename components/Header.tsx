@@ -1,9 +1,13 @@
 import { Flex, Menu, MenuItem, Heading, IconButton, MenuButton, MenuList } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-const Header = () => {
+
+interface props {
+    background: string;
+}
+const Header = ({ background = "white" }: props) => {
     return (
-        <Flex w="100%" background="white" zIndex={1} pos={"fixed"} top={0} p={"0.8rem"} justifyContent={"space-between"}>
-            <Heading onClick={() => alert("heading")}>CODE CRAFT</Heading>
+        <Flex w="100%" background={background} zIndex={1} pos={"fixed"} top={0} p={"0.8rem"} justifyContent={"space-between"}>
+            <Heading onClick={() => (window.location.href = "/")}>CODE CRAFT</Heading>
             <Menu>
                 <MenuButton as={IconButton} icon={<HamburgerIcon />} aria-label="Options" variant="outline" />
                 <MenuList>

@@ -1,6 +1,7 @@
-import { Button, Flex, Text } from "@chakra-ui/react";
+import { Button, Flex, Text, useMediaQuery } from "@chakra-ui/react";
 import Image from "next/image";
 import banner1 from "../public/images/home/home_image_banner1";
+
 const Home = () => {
     return (
         <Flex flexDir="column">
@@ -27,13 +28,13 @@ const ImageSection = () => {
     return (
         <Flex flexDir={"column"} height={"100vh"} gap={10} bg="black">
             <Flex gap={10} mt={"auto"}>
-                {banner1.map((img) => {
-                    return <Image src={img} alt={"생성 이미지 예시"} width={180}></Image>;
+                {banner1.map((img, index) => {
+                    return <Image key={index} unoptimized={true} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
                 })}
             </Flex>
             <Flex gap={10}>
-                {reversed_banner.map((img) => {
-                    return <Image src={img} alt={"생성 이미지 예시"} width={180}></Image>;
+                {reversed_banner.map((img, index) => {
+                    return <Image key={index} unoptimized={true} src={img} alt={"생성 이미지 예시"} width={180}></Image>;
                 })}
             </Flex>
         </Flex>

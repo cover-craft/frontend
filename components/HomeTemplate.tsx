@@ -30,7 +30,7 @@ const Home = () => {
                     fontSize={"xl"}
                     fontWeight={"medium"}
                     p="1.5rem"
-                    onClick={() => (location.href = "/create")}
+                    onClick={() => (location.href = "./create")}
                 >
                     이미지 생성하기
                 </Button>

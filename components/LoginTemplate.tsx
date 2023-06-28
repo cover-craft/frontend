@@ -2,6 +2,7 @@ import { Flex, Heading, Center, Stack, Input, Link } from "@chakra-ui/react";
 import PasswordInput from "./PasswordInput";
 import ButtonActive from "./ButtonActive";
 import { useMediaQuery } from "@chakra-ui/react";
+import Header from "./Header";
 
 const Login = () => {
     const [isSmallerThan800] = useMediaQuery("(max-width: 800px)", {
@@ -16,12 +17,13 @@ const Login = () => {
 
     return (
         <Flex h={"100vh"}>
+            <Header></Header>
             <Flex mt={"80px"} direction={"column"} flex={1} maxW={"500px"} mx="auto">
                 <Center flexDir={"column"} py={"2rem"}>
                     <Heading fontSize={"2xl"}>로그인</Heading>
                 </Center>
                 <Stack px={isSmallerThan500 ? "1rem" : "5rem"} my={"1rem"}>
-                    <Input variant="outline" placeholder="Enter id" />
+                    <Input variant="outline" placeholder="Enter id" focusBorderColor="purple.200" />
                     <PasswordInput />
                     <ButtonActive />
                     <Link color="gray.500" fontSize={"sm"} mx="auto">

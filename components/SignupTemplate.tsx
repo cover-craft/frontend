@@ -1,22 +1,26 @@
 import { Flex, Heading, Center, Stack, Text, Checkbox, Box, Input, Button } from "@chakra-ui/react";
 import ProgressBar from "./ProgressBar";
 import { USE_AGREE } from "../public/agree/use_agree";
+import Header from "./Header";
 const SignupTemplate = () => {
     return (
-        <Flex mt={"80px"} direction={"column"} flex={1} maxW={"500px"} mx="auto">
-            <Center flexDir={"column"} py={"2rem"}>
-                <Heading fontSize={"2xl"}>회원가입</Heading>
-            </Center>
-            <Stack>
-                <ProgressBar
-                    steps={[
-                        { title: "약관동의", template: <AgreeToTerms /> },
-                        { title: "개인정보 입력", template: <InputSingupForm /> },
-                    ]}
-                    onComplete={() => alert("완료 되었습니다.")}
-                />
-            </Stack>
-        </Flex>
+        <>
+            <Header></Header>
+            <Flex mt={"80px"} direction={"column"} flex={1} maxW={"500px"} mx="auto">
+                <Center flexDir={"column"} py={"2rem"}>
+                    <Heading fontSize={"2xl"}>회원가입</Heading>
+                </Center>
+                <Stack>
+                    <ProgressBar
+                        steps={[
+                            { title: "약관동의", template: <AgreeToTerms /> },
+                            { title: "개인정보 입력", template: <InputSingupForm /> },
+                        ]}
+                        onComplete={() => alert("완료 되었습니다.")}
+                    />
+                </Stack>
+            </Flex>
+        </>
     );
 };
 

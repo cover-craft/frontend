@@ -25,11 +25,12 @@ const Home = () => {
                     position={"fixed"}
                     zIndex={1}
                     bottom={"1rem"}
-                    right={"1rem"}
+                    right={"2rem"}
                     colorScheme="purple"
                     fontSize={"xl"}
                     fontWeight={"medium"}
                     p="1.5rem"
+                    onClick={() => (location.href = "/create")}
                 >
                     이미지 생성하기
                 </Button>

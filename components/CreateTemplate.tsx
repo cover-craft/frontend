@@ -11,7 +11,11 @@ type Form = {
     clothes: null | string;
 };
 
-const Create = () => {
+interface props {
+    onClick?: () => void;
+}
+
+const Create = (props: props) => {
     const [form, setForm] = useState<Form>({ gender: null, genre: null, background: null, color: null, clothes: null });
     const genreList = ["판타지", "로맨스", "SF", "스릴러"];
     const backgroundList = ["궁전", "침실", "꽃", "도시", "야외", "실내"];
@@ -112,7 +116,9 @@ const Create = () => {
                     <Text fontSize={"xl"}>제목</Text>
                     <Input variant="outline" placeholder="작품 제목을 입력해주세요." focusBorderColor="purple.200" />
                 </Stack>
-                <Button colorScheme={"purple"}>제작하기</Button>
+                <Button colorScheme={"purple"} onClick={props.onClick}>
+                    제작하기
+                </Button>
             </Flex>
         </>
     );

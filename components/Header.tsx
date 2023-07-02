@@ -16,7 +16,7 @@ const Header = ({ darkMode = false }: props) => {
             p={"0.8rem"}
             justifyContent={"space-between"}
         >
-            <Heading color={darkMode ? "white" : "black"} onClick={() => (window.location.href = "/")}>
+            <Heading color={darkMode ? "white" : "black"} onClick={() => (window.location.href = "./")}>
                 COVER CRAFT
             </Heading>
             <Menu>
@@ -29,6 +29,7 @@ const Header = ({ darkMode = false }: props) => {
                 <MenuList>
                     <MenuItem onClick={() => (window.location.href = "./login")}>로그인</MenuItem>
                     <MenuItem onClick={() => (window.location.href = "./signup")}>회원가입</MenuItem>
+                    <MenuItem onClick={() => (window.location.href = "./credit")}>요금제</MenuItem>
                 </MenuList>
             </Menu>
         </Flex>

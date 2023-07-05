@@ -60,7 +60,15 @@ const DescriptionSection = () => {
             px={10}
         >
             <Flex justifyContent="right" flex={1} height={"70vh"}>
-                <video style={{ borderRadius: "10px" }} className="video" src="./video/cover-craft.mov" autoPlay muted loop></video>
+                <video
+                    style={{ borderRadius: "10px" }}
+                    className="video"
+                    src="./video/cover-craft.mov"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                ></video>
             </Flex>
             <Flex flex={1} flexDir={"column"}>
                 <Heading fontSize={isSmallerThan400 ? "3xl" : "5xl"}>원하는 이미지를</Heading>

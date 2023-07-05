@@ -16,6 +16,7 @@
         "@emotion/styled": "^11.11.0",
         "@fontsource/open-sans": "^5.0.3",
         "@fontsource/raleway": "^5.0.3",
+        "axios": "^1.4.0",
         "framer-motion": "^10.12.17",
         "next": "latest",
         "next-images": "^1.8.5",

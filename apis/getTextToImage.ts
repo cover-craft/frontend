@@ -8,7 +8,7 @@ export const getTextToImage = (prompt: string) => {
         width: 1064,
     };
 
-    axios
+    return axios
         .post(`${process.env.NEXT_PUBLIC_MODEL_API}/txt2img`, data)
         .then((res) => {
             localStorage.setItem("resultImg", res.data.Imgs[0]);

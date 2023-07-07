@@ -3,7 +3,7 @@ import { Flex, Stack, IconButton, Text, Button, Center, Input, SimpleGrid } from
 import { useState } from "react";
 import { AiOutlineMan, AiOutlineWoman } from "react-icons/ai";
 
-type Form = {
+export type Form = {
     gender: null | string;
     genre: null | string;
     background: null | string;
@@ -12,16 +12,49 @@ type Form = {
 };
 
 interface props {
-    onClick?: () => void;
+    onClick?: (form: Form, prompt: string) => void;
 }
 
 const Create = (props: props) => {
     const [form, setForm] = useState<Form>({ gender: null, genre: null, background: null, color: null, clothes: null });
-    const genreList = ["판타지", "로맨스", "SF", "스릴러"];
-    const backgroundList = ["궁전", "침실", "꽃", "도시", "야외", "실내"];
-    const colorList = ["검정", "갈색", "흰색", "분홍색", "빨간색", "노란색", "초록색", "파란색", "보라색", "회색"];
-    const clothesList = ["티셔츠", "정장", "드레스", "밀리터리", "갑옷"];
-    const genderList = ["남자", "여자"];
+    const [prompt, setPrompt] = useState<string>("");
+    const genreList = [
+        { key: "fantasy", value: "판타지" },
+        { key: "romance", value: "로맨스" },
+        { key: "sf", value: "SF" },
+        { key: "thriller", value: "스릴러" },
+    ];
+    const backgroundList = [
+        { key: "palace", value: "궁전" },
+        { key: "bedroom", value: "침실" },
+        { key: "flower", value: "꽃" },
+        { key: "city", value: "도시" },
+        { key: "outside", value: "야외" },
+        { key: "inside", value: "실내" },
+    ];
+    const colorList = [
+        { key: "black", value: "검정" },
+        { key: "brown", value: "갈색" },
+        { key: "white", value: "흰색" },
+        { key: "pink", value: "분홍색" },
+        { key: "red", value: "빨간색" },
+        { key: "yellow", value: "노란색" },
+        { key: "green", value: "초록색" },
+        { key: "blue", value: "파란색" },
+        { key: "purple", value: "보라색" },
+        { key: "gray", value: "회색" },
+    ];
+    const clothesList = [
+        { key: "tee shirt", value: "티셔츠" },
+        { key: "suit", value: "정장" },
+        { key: "dress", value: "드레스" },
+        { key: "military", value: "밀리터리" },
+        { key: "armor", value: "갑옷" },
+    ];
+    const genderList = [
+        { key: "man", value: "남자" },
+        { key: "woman", value: "여자" },
+    ];
     return (
         <>
             <Header></Header>
@@ -33,21 +66,21 @@ const Create = (props: props) => {
                     <Center gap={2}>
                         {genderList.map((item) => (
                             <IconButton
-                                key={item}
-                                onClick={() => setForm({ ...form, ["gender"]: item })}
-                                colorScheme={form["gender"] === item ? "purple" : "gray"}
+                                key={item.key}
+                                onClick={() => setForm({ ...form, ["gender"]: item.key })}
+                                colorScheme={form["gender"] === item.key ? "purple" : "gray"}
                                 borderRadius={"full"}
                                 width={"5rem"}
                                 height={"5rem"}
                                 variant="outline"
                                 icon={
-                                    item === "남자" ? (
-                                        <AiOutlineMan color={form["gender"] === item ? "#8b00ff" : "gray"} size={"2rem"} />
+                                    item.value === "남자" ? (
+                                        <AiOutlineMan color={form["gender"] === item.key ? "#8b00ff" : "gray"} size={"2rem"} />
                                     ) : (
-                                        <AiOutlineWoman color={form["gender"] === item ? "#8b00ff" : "gray"} size={"2rem"} />
+                                        <AiOutlineWoman color={form["gender"] === item.key ? "#8b00ff" : "gray"} size={"2rem"} />
                                     )
                                 }
-                                aria-label={item}
+                                aria-label={item.value}
                             ></IconButton>
                         ))}
                     </Center>
@@ -58,11 +91,11 @@ const Create = (props: props) => {
                         {genreList.map((item, index) => (
                             <Button
                                 key={index}
-                                colorScheme={form["genre"] === item ? "purple" : "gray"}
+                                colorScheme={form["genre"] === item.key ? "purple" : "gray"}
                                 variant={"outline"}
-                                onClick={() => setForm({ ...form, ["genre"]: item })}
+                                onClick={() => setForm({ ...form, ["genre"]: item.key })}
                             >
-                                {item}
+                                {item.value}
                             </Button>
                         ))}
                     </SimpleGrid>
@@ -74,10 +107,10 @@ const Create = (props: props) => {
                             <Button
                                 key={index}
                                 variant={"outline"}
-                                onClick={() => setForm({ ...form, ["background"]: item })}
-                                colorScheme={form["background"] === item ? "purple" : "gray"}
+                                onClick={() => setForm({ ...form, ["background"]: item.key })}
+                                colorScheme={form["background"] === item.key ? "purple" : "gray"}
                             >
-                                {item}
+                                {item.value}
                             </Button>
                         ))}
                     </SimpleGrid>
@@ -89,10 +122,10 @@ const Create = (props: props) => {
                             <Button
                                 key={index}
                                 variant={"outline"}
-                                onClick={() => setForm({ ...form, ["color"]: item })}
-                                colorScheme={form["color"] === item ? "purple" : "gray"}
+                                onClick={() => setForm({ ...form, ["color"]: item.key })}
+                                colorScheme={form["color"] === item.key ? "purple" : "gray"}
                             >
-                                {item}
+                                {item.value}
                             </Button>
                         ))}
                     </SimpleGrid>
@@ -104,19 +137,24 @@ const Create = (props: props) => {
                             <Button
                                 key={index}
                                 variant={"outline"}
-                                onClick={() => setForm({ ...form, ["clothes"]: item })}
-                                colorScheme={form["clothes"] === item ? "purple" : "gray"}
+                                onClick={() => setForm({ ...form, ["clothes"]: item.key })}
+                                colorScheme={form["clothes"] === item.key ? "purple" : "gray"}
                             >
-                                {item}
+                                {item.value}
                             </Button>
                         ))}
                     </SimpleGrid>
                 </Stack>
                 <Stack className="title-input">
                     <Text fontSize={"xl"}>제목</Text>
-                    <Input variant="outline" placeholder="작품 제목을 입력해주세요." focusBorderColor="purple.200" />
+                    <Input
+                        variant="outline"
+                        placeholder="작품 제목을 입력해주세요."
+                        focusBorderColor="purple.200"
+                        onChange={(e) => setPrompt(e.target.value)}
+                    />
                 </Stack>
-                <Button colorScheme={"purple"} onClick={props.onClick}>
+                <Button colorScheme={"purple"} onClick={() => props.onClick(form, prompt)}>
                     제작하기
                 </Button>
             </Flex>

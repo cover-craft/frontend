@@ -3,9 +3,10 @@ import { ReactNode } from "react";
 
 interface props {
     steps: { title: string; template: ReactNode }[];
+    onClickNext: (value: number) => boolean;
     onComplete: () => void;
 }
-const ProgressBar = ({ steps, onComplete }: props) => {
+const ProgressBar = ({ steps, onClickNext, onComplete }: props) => {
     const { activeStep, setActiveStep } = useSteps({
         index: 0,
         count: steps.length,
@@ -32,8 +33,10 @@ const ProgressBar = ({ steps, onComplete }: props) => {
                 my={"3rem"}
                 colorScheme="purple"
                 w={"100%"}
-                onClick={() => {
-                    activeStep === max ? onComplete() : setActiveStep(activeStep + 1);
+                onClick={async () => {
+                    if (await onClickNext(activeStep)) {
+                        activeStep === max ? onComplete() : setActiveStep(activeStep + 1);
+                    }
                 }}
             >
                 다음

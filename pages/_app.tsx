@@ -2,6 +2,7 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { Global } from "@emotion/react";
+import Footer from "../components/Footer";
 
 // export const theme = extendTheme({
 //     fonts: {
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 styles={` 
             body {
                 font-family: "nexon-regular";
+        
             }
             button {
                 font-family: "nexon-light";
@@ -26,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             `}
             />
             <Component {...pageProps} />
+            <Footer />
         </ChakraProvider>
     );
 }

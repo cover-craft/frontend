@@ -9,11 +9,11 @@ export const getTextToImage = (prompt: string) => {
     };
 
     return axios
-        .post(`${process.env.NEXT_PUBLIC_MODEL_API}/txt2img`, data)
+        .post("http://117.16.43.105:8000/txt2img", data)
         .then((res) => {
-            localStorage.setItem("resultImg", res.data.Imgs[0]);
-            localStorage.setItem("prompt", res.data.prompt);
-            return true;
+            console.log(res.data);
+            localStorage.setItem("imgs", res.data.imgs);
+            return res.data;
         })
         .catch((res) => {
             console.error("getTextToImage", res);

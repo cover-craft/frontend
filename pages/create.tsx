@@ -7,9 +7,11 @@ import { useToast } from "@chakra-ui/react";
 const Create = () => {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const toast = useToast();
+
     const onCreateTextToImage = (form: Form, prompt: string) => {
-        const inputPrompt = `${form.genre}, ${form.gender}, ${form.color}, ${form.clothes}, ${form.background}, ${prompt}`;
         setIsLoading(true);
+        const inputPrompt = `${form.genre}, ${form.gender}, ${form.color}, ${form.clothes}, ${form.background}, ${prompt}`;
+        localStorage.setItem("prompt", inputPrompt);
         getTextToImage(inputPrompt).then((res) => {
             if (res) {
                 setIsLoading(false);
